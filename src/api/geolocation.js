@@ -7,6 +7,7 @@ export function ipPadrao() {
     method: "GET",
     url: "https://geo.ipify.org/api/v1?apiKey="+api_key,
     data: {apiKey: api_key},
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
   })
 }
 
@@ -16,7 +17,7 @@ export function listaIp(ip) {
     method: "GET",
     url: `https://geo.ipify.org/api/v1?apiKey=${api_key}&ipAddress=${ipAddress}`,
     data: {apiKey: api_key},
-    headers: {'Access-Control-Allow-Headers':'*'}
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
   })
 }
 
@@ -26,6 +27,6 @@ export function listaDominio(dominioAddress) {
     method: "GET",
     url: `https://geo.ipify.org/api/v1?apiKey=${api_key}&domain=${dominio}`,
     data: {apiKey: api_key},
-    headers: {'Access-Control-Allow-Headers':'*'}
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
   })
 }
