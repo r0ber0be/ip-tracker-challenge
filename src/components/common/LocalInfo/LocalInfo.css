@@ -1,5 +1,5 @@
 .info {
-  top: 13vw;
+  margin-top: -8vh;
   position: absolute;
   z-index: 3;
   padding: 20px 35px 35px;
@@ -41,6 +41,37 @@
   font-weight: 700;
 }
 
-/*
-responsivo da class information
-grid-area: auto;*/
+@media (max-width: 1020px) {
+  .information p {
+    padding: 8px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 510px) {
+  .info {
+    grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
+  }
+  .information {
+    padding: 0px;
+    border: none;
+  }
+}
+
+@media (max-width: 375px) {
+  .info {
+    text-align: center;
+  }
+  .information span {
+    font-size: 9px;
+  }
+  .information p {
+    word-break: keep-all;
+  }
+}
+
+@media (max-width: 270px) {
+  .info {
+    padding: 10px;
+  }
+}

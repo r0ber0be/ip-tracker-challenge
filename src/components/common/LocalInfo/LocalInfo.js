@@ -1,7 +1,6 @@
 import './LocalInfo.css';
 
 export function LocalInfo(geo) {
-  console.log('sou x', geo)
   return (
     <div className="info">
       <div className="information">

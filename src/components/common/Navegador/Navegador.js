@@ -16,14 +16,13 @@ function Cabecalho() {
   )
 } 
 
-
 const newMarker = new Icon({
   iconUrl: markerIcon,
-  iconSize: [25, 30]
+  iconSize: [30, 35]
 });
 
 const defaultPosition = [51.505, -0.09]
-const Map = ({ location }) => {
+const Map = ({ location, place }) => {
   const [map, setMap] = useState(null);
   function handleSetView() {
     if(map && location) {
@@ -32,13 +31,12 @@ const Map = ({ location }) => {
       })
     }
   }
-  useEffect(() => handleSetView, [location]);
+  useEffect(() => handleSetView(location));
 
   return (
     <MapContainer 
       center={defaultPosition} 
-      zoom={15} 
-      
+      zoom={15}
       scrollWheelZoom={false}
       whenCreated={map => setMap(map)}
       >
@@ -48,7 +46,7 @@ const Map = ({ location }) => {
       />
       <Marker position={location} icon={newMarker}>
         <Popup>
-         aaaa
+         {place?.city} - {place?.region} - {place?.country}
         </Popup>
       </Marker>
     </MapContainer>
@@ -72,7 +70,6 @@ export function Navegador() {
     if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ipAddress)) {
       listaIp(ipAddress).then((res) => {
         setGeoState(res.data);
-        console.log('aaa',geoState.ip);
       }).catch((err) => {
         console.log(err);
       })
@@ -84,12 +81,9 @@ export function Navegador() {
       })
     }
   }
-  /*
-  let newPosition = [geoState.location?.lat, geoState.location?.lng];
-  console.log('new position',newPosition)*/
   
   return (
-    <div>
+    <>
       <Cabecalho/>
       <div className="campo-input">
         <input type="text" className="campo-pesquisa" 
@@ -105,8 +99,10 @@ export function Navegador() {
       
       <LocalInfo info={geoState}/>
       <div className="leaflet-container">
-        <Map location={geoState.location ? [geoState.location.lat, geoState.location.lng] : defaultPosition}/>
+        <Map 
+          location={geoState.location ? [geoState.location.lat, geoState.location.lng] : defaultPosition}
+          place={geoState.location}/>
       </div>
-    </div>
+    </>
   )
 }

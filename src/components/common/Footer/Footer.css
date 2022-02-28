@@ -1,0 +1,18 @@
+.attribution {
+  top: 100vh;
+  position: relative;
+  padding: 5px;
+  z-index: 10;
+  background-color: hsl(238, 83%, 60%);
+}
+
+.attribution a {
+  text-decoration: none;
+  color: white;
+}
+
+@media (max-width: 510px) {
+  .attribution {
+    font-size: 12px;
+  }
+}
