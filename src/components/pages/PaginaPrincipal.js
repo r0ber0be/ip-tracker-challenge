@@ -4,9 +4,9 @@ import './PaginaPrincipal.css';
 
 export function PaginaPrincipal() {
   return (
-    <div className="main-container">
+    <main role="main" className="main-container">
       <Navegador/>
       <Footer/>
-    </div>
+    </main>
   )
 }

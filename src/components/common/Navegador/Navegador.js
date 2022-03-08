@@ -10,9 +10,10 @@ import { Icon } from 'leaflet';
 
 function Cabecalho() {
   return (
-    <div>
+    <header role="banner">
+      <h1 className="logo-name">IP Address Tracker</h1>
       <img src={bg} className="background" alt="Fundo azul"/>
-    </div>
+    </header>
   )
 } 
 
@@ -85,7 +86,7 @@ export function Navegador() {
   return (
     <>
       <Cabecalho/>
-      <div className="campo-input">
+      <div className="campo-input">  
         <input type="text" className="campo-pesquisa" 
           onChange={({target}) => setIpAddress(target.value)} 
           value={ipAddress}

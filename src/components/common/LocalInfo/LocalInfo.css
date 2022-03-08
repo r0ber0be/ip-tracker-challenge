@@ -21,6 +21,7 @@
 }
 
 .information {
+  height: 100%;
   max-height: 120px;
   padding: 0 0 0 10px;
   color: hsl(0, 0%, 59%);
@@ -61,6 +62,7 @@
 @media (max-width: 375px) {
   .info {
     text-align: center;
+    margin-top: -10vh;
   }
   .information span {
     font-size: 9px;
