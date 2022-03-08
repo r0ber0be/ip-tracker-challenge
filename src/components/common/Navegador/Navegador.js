@@ -10,7 +10,7 @@ import { Icon } from 'leaflet';
 
 function Cabecalho() {
   return (
-    <header role="banner">
+    <header>
       <h1 className="logo-name">IP Address Tracker</h1>
       <img src={bg} className="background" alt="Fundo azul"/>
     </header>
